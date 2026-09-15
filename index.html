@@ -86,8 +86,11 @@
 </head>
 <body>
 
+  <!-- Background Song (Tune) -->
+  <audio id="bdaySong" src="https://assets.mixkit.co/music/preview/mixkit-happy-birthday-to-you-443.mp3" preload="auto"></audio>
+
   <div class="container">
-    <!-- Screen 1: Jab wo pehli baar link kholengi -->
+    <!-- Screen 1: Pehle gift box dikhega -->
     <div id="start-screen">
       <h1>Aapke Liye Ek Surprise Hai! 💌</h1>
       <p>Neeche diye gaye gift box par tap kijiye ✨</p>
@@ -98,7 +101,6 @@
     <!-- Screen 2: Gift khulne ke baad -->
     <div id="surprise-screen" class="wish-box">
       <div style="font-size: 45px; margin-bottom: 10px;">🎂✨💖</div>
-      <!-- Yahan unka naam badal sakte hain -->
       <h1>Happy Birthday, Deepanjali ji ! 🌸</h1>
       
       <p>
@@ -115,7 +117,6 @@
 
   <script>
     function triggerParty() {
-      // Confetti firework effect
       confetti({
         particleCount: 80,
         spread: 70,
@@ -124,11 +125,15 @@
     }
 
     function openSurprise() {
+      // Gift click hote hi gaana play hoga
+      const song = document.getElementById('bdaySong');
+      song.play();
+
       document.getElementById('start-screen').style.display = 'none';
       const surprise = document.getElementById('surprise-screen');
       surprise.style.display = 'block';
 
-      // Blast colorful celebration confetti
+      // Confetti burst
       var duration = 3 * 1000;
       var end = Date.now() + duration;
 
@@ -155,4 +160,3 @@
 
 </body>
 </html>
-

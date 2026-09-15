@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love! ❤️</title>
+  <!-- Confetti library for celebration effects -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 99%, #fecfef 100%);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+      overflow-x: hidden;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.95);
+      padding: 30px 20px;
+      border-radius: 20px;
+      box-shadow: 0 15px 35px rgba(255, 75, 110, 0.2);
+      max-width: 420px;
+      width: 100%;
+      position: relative;
+    }
+    .gift-btn {
+      font-size: 65px;
+      cursor: pointer;
+      display: inline-block;
+      margin: 20px 0;
+      transition: transform 0.2s;
+      user-select: none;
+      animation: bounce 1.5s infinite;
+    }
+    .gift-btn:hover {
+      transform: scale(1.15);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-12px); }
+    }
+    .wish-box {
+      display: none;
+      animation: fadeIn 1s forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+    h1 {
+      color: #e11d48;
+      font-size: 26px;
+      margin-bottom: 12px;
+    }
+    p {
+      color: #4b5563;
+      font-size: 16px;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+    .tagline {
+      font-weight: 600;
+      color: #db2777;
+    }
+    .btn-again {
+      background: #e11d48;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 25px;
+      font-size: 15px;
+      cursor: pointer;
+      margin-top: 10px;
+      box-shadow: 0 4px 10px rgba(225, 29, 72, 0.3);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <!-- Screen 1: Jab wo pehli baar link kholengi -->
+    <div id="start-screen">
+      <h1>Aapke Liye Ek Surprise Hai! 💌</h1>
+      <p>Neeche diye gaye gift box par tap kijiye ✨</p>
+      <div class="gift-btn" onclick="openSurprise()">🎁</div>
+      <p style="font-size: 13px; color: #9ca3af;">(Click the gift to open)</p>
+    </div>
+
+    <!-- Screen 2: Gift khulne ke baad -->
+    <div id="surprise-screen" class="wish-box">
+      <div style="font-size: 45px; margin-bottom: 10px;">🎂✨💖</div>
+      <!-- Yahan unka naam badal sakte hain -->
+      <h1>Happy Birthday, My Love! 🌸</h1>
+      
+      <p>
+        Aap mere jeevan ka sabse pyara aur khoobsurat hissa ho. 
+        Rab kare aapka har din khushiyon se bhara rahe aur aapke chehre ki muskaan hamesha aisi hi chamakti rahe!
+      </p>
+
+      <p class="tagline">"Hamesha muskurati raho, Happy Birthday once again!" 🎈</p>
+      <p style="font-size: 14px; color: #db2777; font-weight: bold;">— Gunjan ❤️</p>
+
+      <button class="btn-again" onclick="triggerParty()">Aur Confetti Udao! 🎉</button>
+    </div>
+  </div>
+
+  <script>
+    function triggerParty() {
+      // Confetti firework effect
+      confetti({
+        particleCount: 80,
+        spread: 70,
+        origin: { y: 0.6 }
+      });
+    }
+
+    function openSurprise() {
+      document.getElementById('start-screen').style.display = 'none';
+      const surprise = document.getElementById('surprise-screen');
+      surprise.style.display = 'block';
+
+      // Blast colorful celebration confetti
+      var duration = 3 * 1000;
+      var end = Date.now() + duration;
+
+      (function frame() {
+        confetti({
+          particleCount: 4,
+          angle: 60,
+          spread: 55,
+          origin: { x: 0 }
+        });
+        confetti({
+          particleCount: 4,
+          angle: 120,
+          spread: 55,
+          origin: { x: 1 }
+        });
+
+        if (Date.now() < end) {
+          requestAnimationFrame(frame);
+        }
+      }());
+    }
+  </script>
+
+</body>
+</html>
+
